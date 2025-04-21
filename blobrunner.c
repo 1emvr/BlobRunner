@@ -110,15 +110,10 @@ UINT_PTR find_region(HANDLE process, UINT_PTR cexport, SIZE_T size) {
 
 BOOL threadless(PROC_FILE *shellcode, BOOL nopause) {
 	
-	LPVOID exp_addr  = 0;
-	LPVOID cexp_addr = 0;
+	LPVOID exp_addr = 0, cexp_addr = 0;
+	UINT_PTR rva = 0, hook  = 0, chook = 0;
 
-	UINT_PTR rva   = 0;
-	UINT_PTR hook  = 0;
-	UINT_PTR chook = 0;
-
-	SIZE_T read   = 0;
-	SIZE_T write  = 0;
+	SIZE_T read = 0, write  = 0;
 	DWORD protect = 0;
 
 	HANDLE process = GetCurrentProcess();
